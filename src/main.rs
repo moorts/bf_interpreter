@@ -4,7 +4,8 @@ mod bf_utils;
 
 use std::fs::File;
 use std::io::{self, prelude::*, BufReader};
-use crate::interpreter::{bytecode_interp};
+use std::env;
+use crate::interpreter::{bytecode_interp, simple_interp};
 use crate::bf_utils::{Program};
 
 
@@ -25,9 +26,11 @@ fn parse_from_file(path: &str) -> io::Result<Program> {
 
 
 fn main() -> io::Result<()> {
-    let p = parse_from_file("./mandel.bf")?;
+    let args: Vec<String> = env::args().collect();
+    let p = parse_from_file(&args[1])?;
     // simple_interp(&p);
     //println!("{:?}", p.instructions);
+    // simple_interp(&p);
     bytecode_interp(&p);
     Ok(())
 }

@@ -130,7 +130,7 @@ fn compute_jumptable(p: &Program) -> Vec<usize> {
 
 const MEMORY_SIZE: usize = 30000;
 
-fn simple_interp(p: &Program) -> io::Result<()> {
+pub fn simple_interp(p: &Program) -> io::Result<()> {
     let mut memory: Vec<u8> = vec![0; MEMORY_SIZE];
     let mut pc: usize = 0;
     let mut dataptr: usize = 0;
