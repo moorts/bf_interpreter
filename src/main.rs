@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 mod interpreter;
 mod bf_utils;
+mod jit_utils;
 
 use std::fs::File;
 use std::io::{self, prelude::*, BufReader};
